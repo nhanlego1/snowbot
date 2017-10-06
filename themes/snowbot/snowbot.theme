@@ -1,0 +1,53 @@
+<?php
+
+use Drupal\paragraphs\Entity\Paragraph; 
+use Drupal\node\Entity\Node;
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+
+function snowbot_preprocess_page(&$variables) {
+	
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| paragraphs preprocessing
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+
+function snowbot_preprocess_paragraph__one_column(&$variables) {
+
+	$paragraph = $variables['paragraph'];
+	
+	foreach ($paragraph->get('field_field_types')->getValue() as $valParagraph) {
+		$paraItem = Paragraph::load($valParagraph['target_id']);
+		if($paraItem->getType() == 'background_image') {
+			$uri = $paraItem->get('field_image')->entity->getFileUri();
+			$urlImage = file_create_url($uri);
+			$variables['url_image'] = $urlImage;
+		}
+
+		if($paraItem->getType() == 'background_colors') {
+			$color = $paraItem->get('field_color')->getValue()[0]['value'];
+			$variables['bg_color'] = $color;
+		}
+	}
+	
+}
+
+function snowbot_preprocess_paragraph__big_button(&$variables) {
+	$paragraph = $variables['paragraph'];
+	$variables['big_button_name'] = $paragraph->get('field_button_name')->getValue()[0]['value'];
+	$variables['big_button_url'] = $paragraph->get('field_url')->getValue()[0]['value'];
+}

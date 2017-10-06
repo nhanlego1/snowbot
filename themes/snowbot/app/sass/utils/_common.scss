@@ -1,0 +1,192 @@
+body {
+	font-family: 'Lato-Regular';
+	font-size: 14px;
+}
+
+h1 {
+	font-family: 'Montserrat-ExtraBold';
+	text-transform: uppercase;
+    font-size: 4.6vw;
+    color: white;
+    margin: 0;
+    line-height: 80px;
+    &:hover {
+    	color: $very-light-blue;
+    }
+}
+
+.centered {
+	text-align: center;
+}
+
+.paragraph {
+	&--type--one-column {
+		height: 100vh;
+		background-size: 100% 100%;
+    	background-repeat: no-repeat;
+    	.field--name-field-field-types {
+    		opacity: 1;
+		    top: 20vh;
+		    position: relative;
+    	}
+	}
+	.paragraph-header {
+		position: relative;
+	    left: 20px;
+	    .logo {
+	    	a {
+	    		text-indent: -9999px;
+				display: block;
+				width: 200px;
+				height: 50px;
+				background-position: center;
+				background-size: 100%;
+				cursor: pointer;
+	    	}
+	    	&--white { 
+	    		a {
+	    			background-image: url('../../app/img/logo.png');
+	    		}
+	    	}
+	    	&--blue {
+	    		a {
+	    			background-image: url('../../app/img/logo-blue.png');
+	    		}
+	    	}
+	    }
+	}
+}
+
+body:not(.user-logged-in) {
+	.paragraph {
+		.paragraph-header {
+			top: 4vh;
+		}
+	}
+}
+
+body.user-logged-in {
+	.paragraph {
+		.paragraph-header {
+			top: 14vh;
+		}
+	}
+}
+
+.btn {
+	&--big-button {
+		margin: 15px 0;
+	    background-color: white;
+	    color: $middle-blue;
+	    text-transform: uppercase;
+	    font-family: 'Montserrat-Medium';
+	    font-size: 18px;
+	    padding: 10px 20px;
+	    border-radius: 25px;
+	    border: 0;
+	    &:hover {
+	    	background-color: white;
+	    	color: $middle-blue;
+	    }
+	}
+}
+
+// Style for dot slider
+.slick-dots {
+	width: auto;
+	right: 20px;
+	top: 50%;
+	li {
+		display: block;
+		button {
+			&:before {
+				opacity: 1;
+				font-size: 1.1rem;
+				content: "";
+				width: 11px;
+				height: 11px;
+				border-radius: 50%;
+				border: 2px solid white;
+			}
+		}
+		&.slick-active {
+			button {
+				&:before {
+					opacity: 1;
+					background-color: white;
+				}
+			}
+		}
+	}
+}
+
+// .paragraph-slider.has-color {
+// 	.slick-dots {
+// 		li {
+// 			button {
+// 				&:before {
+// 					border: 2px solid white;
+// 				}
+// 			}
+// 			&.slick-active {
+// 				button {
+// 					&:before {
+// 						background-color: white;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// .paragraph-slider:not(.has-color) {
+// 	.slick-dots {
+// 		li {
+// 			button {
+// 				&:before {
+// 					border: 2px solid $very-light-blue;
+// 				}
+// 			}
+// 			&.slick-active {
+// 				button {
+// 					&:before {
+// 						background-color: $very-light-blue;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// End style for dot slider
+
+// Style for arrow slider 
+.slick__arrow {
+	bottom: 20px;
+    top: unset;
+    button {
+    	&.slick-arrow {
+    		&.slick-disabled {
+    			opacity: 0;
+    		}
+    		&.slick-next {
+    			right: 0;
+				left: 0;
+				margin: 0 auto;
+    			&:before {
+    				opacity: 1;
+    				content: "\f107";
+    				font-family: "FontAwesome";
+    				background: transparent;
+    				color: white;
+    				font-size: 32px;
+    			}
+    			&:hover {
+    				&:before {
+    					opacity: 1;
+    				}
+    			}
+    		}
+    	}
+    }
+}
